@@ -33,6 +33,7 @@ const CustomLineChart = ({ data }) => {
       //     if (data[0].type !== "register") return 0.5;
       //   },
     },
+    colorField: "category",
   };
 
   return <Line {...config} />;

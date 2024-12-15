@@ -2,6 +2,7 @@ import { http, HttpResponse } from "msw";
 
 import {
   initialCurningRooms,
+  initialCurningRoomsInfo,
   initialLocationList,
   initialStoneBallsInfo,
 } from "./mockingData";
@@ -12,10 +13,19 @@ let curningRooms = initialCurningRooms;
 
 let stoneBallsMonitoring = initialStoneBallsInfo;
 
+let curningRoomsMonitoring = initialCurningRoomsInfo;
+
 export const handlers = [
   http.get(`/api/location`, ({ params }) => {
     console.log("Mocking request to:", `${apiUrl}/api/location`);
     return HttpResponse.json(initialLocationList);
+  }),
+
+  http.get(`/api/curningRoom/list`, ({ params }) => {
+    console.log("test1");
+    return HttpResponse.json(
+      initialLocationList.filter((location) => location.type === "curningRoom")
+    );
   }),
 
   http.get(`/api/curningRoom/:id`, ({ params }) => {
@@ -88,6 +98,14 @@ export const handlers = [
 
     return HttpResponse.json(
       stoneBallsMonitoring.filter((ball) => ball.id === id)
+    );
+  }),
+
+  http.get(`/api/curningRoom/log/:id`, ({ params }) => {
+    const id = Number(params.id);
+
+    return HttpResponse.json(
+      curningRoomsMonitoring.filter((curningRoom) => curningRoom.id === id)
     );
   }),
 ];

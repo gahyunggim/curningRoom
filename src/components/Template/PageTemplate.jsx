@@ -6,10 +6,15 @@ const PageTemplate = ({ children }) => {
   return (
     <Flex
       vertical
-      style={{ padding: 80, background: "white", height: "100vh" }}
+      style={{
+        padding: 80,
+      }}
+      flex={1}
     >
       <LocationSelector />
-      {children}
+      <Flex flex={1} vertical>
+        {children}
+      </Flex>
     </Flex>
   );
 };

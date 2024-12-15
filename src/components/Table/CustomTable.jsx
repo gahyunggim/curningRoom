@@ -16,6 +16,7 @@ const CustomTable = ({ data, columns }) => {
       columns={convertedColumns}
       pagination={false}
       bordered
+      style={{ width: "100%" }}
     />
   );
 };

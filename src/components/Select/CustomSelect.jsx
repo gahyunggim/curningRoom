@@ -16,6 +16,7 @@ const CustomSelect = ({
     (async () => {
       try {
         const result = await fetchData();
+
         setOptions(
           result?.map((item) => ({
             label: item[optionName],

@@ -1,3 +1,4 @@
+import { Flex } from "antd";
 import "./App.css";
 import PageTemplate from "./components/Template/PageTemplate";
 import { useLocation } from "./contexts/useLocation";
@@ -8,7 +9,7 @@ function App() {
   const { selectedLocation } = useLocation();
 
   return (
-    <>
+    <Flex style={{ height: "100vh" }}>
       <PageTemplate>
         {selectedLocation.type === "curningRoom" ? (
           <CurningRoom />
@@ -16,7 +17,7 @@ function App() {
           <StoneBall />
         )}
       </PageTemplate>
-    </>
+    </Flex>
   );
 }
 

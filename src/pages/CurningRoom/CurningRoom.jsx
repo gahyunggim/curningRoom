@@ -4,8 +4,9 @@ import { useLocation } from "../../contexts/useLocation";
 import apiClient from "../../api/axios";
 import CustomTabs from "../../components/Tabs/CustomTabs";
 import CurningRoomMonitoring from "./CurningMonitoring";
-import CurningRoomSetting from "./CurningRoomSetting";
 import CurningRoomLog from "./CurningRoomLog";
+import { Flex } from "antd";
+import CurningRoomSetting from "./CurningRoomSetting";
 
 const CurningRoom = () => {
   const { selectedLocation } = useLocation();
@@ -28,7 +29,7 @@ const CurningRoom = () => {
   }, [selectedLocation?.id]);
 
   return (
-    <>
+    <Flex vertical>
       <CustomTabs
         contents={[
           { label: "모니터링", component: <CurningRoomMonitoring /> },
@@ -36,7 +37,7 @@ const CurningRoom = () => {
           { label: "조회", component: <CurningRoomLog /> },
         ]}
       />
-    </>
+    </Flex>
   );
 };
 
