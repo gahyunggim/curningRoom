@@ -7,4 +7,7 @@ export default defineConfig({
   define: {
     "process.env": import.meta.env,
   },
+  build: {
+    target: "es2022", // 또는 'modules' (최신 브라우저를 타겟팅)
+  },
 });
